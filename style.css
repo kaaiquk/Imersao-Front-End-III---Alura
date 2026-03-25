@@ -12,10 +12,60 @@ body {
     align-items: center;
 }
 
+nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: left;
+}
+
+nav .logo {
+    height: 60px;
+}
+
 main {
     text-align: center;
     max-width: 800px;
     width: 100%;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 0;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.7rem;
+    color: #999;
+}
+
+footer .github {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    gap: 0.5rem;
+    margin-top: 0rem;
+}
+
+footer .github img {
+    width: 20px;
+    height: 20px;
+}
+
+footer .github a {
+    color: #999;
+    text-decoration: none;
+    font-size: 0.7rem;
+    margin: 0;
 }
 
 .profiles h1 {
@@ -74,4 +124,8 @@ main {
     .profiles-list {
         gap: 1rem;
     }
+}
+
+footer .github a:hover {
+    text-decoration: underline;
 }
