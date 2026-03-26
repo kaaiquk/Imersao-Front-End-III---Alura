@@ -1,12 +1,10 @@
-/* Estilos inspirados na Netflix */
-
 body {
     background-color: #000;
     color: #fff;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 0;
-    height: 100vh;
+    height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,6 +35,7 @@ footer {
     bottom: 0;
     left: 0;
     width: 100%;
+    height: 15px;
     padding: 1rem 0;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.8);
@@ -65,7 +64,10 @@ footer .github a {
     color: #999;
     text-decoration: none;
     font-size: 0.7rem;
-    margin: 0;
+}
+
+footer .github a:hover {
+    text-decoration: underline;
 }
 
 .profiles h1 {
@@ -112,6 +114,35 @@ footer .github a {
     font-weight: 400;
 }
 
+.add-profile {
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.add-profile:hover {
+    transform: scale(1.08);
+}
+
+.add-profile img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.add-profile:hover img {
+    border-color: #fff;
+}
+
+.add-profile p {
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
 /* Responsividade */
 @media (max-width: 600px) {
     .profiles h1 {
@@ -124,8 +155,4 @@ footer .github a {
     .profiles-list {
         gap: 1rem;
     }
-}
-
-footer .github a:hover {
-    text-decoration: underline;
 }
