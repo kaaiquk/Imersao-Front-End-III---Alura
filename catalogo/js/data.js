@@ -1,6 +1,6 @@
 export const categories = [
     {
-        title: "Épicos",
+        title: "Filmes",
         items: [
             {
                 img: "../assets/agentesecreto.jpg", top10: true, badge: "Clássico", badgeColor: "red", progress: 0,

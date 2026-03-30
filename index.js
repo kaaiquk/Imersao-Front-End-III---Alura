@@ -99,6 +99,38 @@ function toggleTheme() {
     setTheme(isLightMode ? 'dark' : 'light');
 }
 
+// Salvar perfil ativo no localStorage
+function setActiveProfile(name, imageSrc) {
+    try {
+        const imageUrl = new URL(imageSrc, window.location.href).href;
+        localStorage.setItem('perfilAtivoNome', name);
+        localStorage.setItem('perfilAtivoImagem', imageUrl);
+    } catch (error) {
+        console.warn('Erro salvando perfil ativo:', error);
+    }
+}
+
+// Inicializar seleção de perfil
+function initializeProfiles() {
+    const profileLinks = document.querySelectorAll('.profiles-list a');
+
+    profileLinks.forEach((link) => {
+        const profileLi = link.querySelector('.profile');
+        if (!profileLi) return;
+
+        const nameEl = profileLi.querySelector('p');
+        const imgEl = profileLi.querySelector('img');
+        if (!nameEl || !imgEl) return;
+
+        const profileName = nameEl.textContent.trim();
+        const profileImage = imgEl.getAttribute('src');
+
+        link.addEventListener('click', () => {
+            setActiveProfile(profileName, profileImage);
+        });
+    });
+}
+
 // Inicializar tema ao carregar a página
 function initializeTheme() {
     injectThemeStyles();
@@ -114,7 +146,11 @@ function initializeTheme() {
 
 // Chamar inicialização quando o DOM estiver pronto
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeTheme);
+    document.addEventListener('DOMContentLoaded', () => {
+        initializeTheme();
+        initializeProfiles();
+    });
 } else {
     initializeTheme();
+    initializeProfiles();
 }
